@@ -15,5 +15,7 @@
 14. sudo systemctl restart mongod
 15. sudo systemctl disable mongod
 16. sudo systemctl enable mongod
-
-
+/* https://www.digitalocean.com/community/tutorials/how-to-configure-remote-access-for-mongodb-on-ubuntu-20-04 */
+17. sudo lsof -i | grep mongo
+18. sudo ufw allow from trusted_machine_ip to any port 27017
+19. sudo nano /etc/mongod.conf
