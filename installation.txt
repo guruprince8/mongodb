@@ -19,3 +19,12 @@
 17. sudo lsof -i | grep mongo
 18. sudo ufw allow from trusted_machine_ip to any port 27017
 19. sudo nano /etc/mongod.conf
+
+/* https://stackoverflow.com/questions/19474712/mongoose-and-multiple-database-in-single-node-js-project */
+
+//product databse 
+const myDB = mongoose.connection.useDb('product');
+module.exports = myDB.model("Snack", snackSchema);
+//user databse
+const myDB = mongoose.connection.useDb('user');
+module.exports = myDB.model("User", userSchema);
