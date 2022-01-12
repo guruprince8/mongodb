@@ -6,3 +6,13 @@ db.createUser(
     pwd: "mongoadmin", 
     roles: ["userAdminAnyDatabase", "dbAdminAnyDatabase", "readWriteAnyDatabase"]
   })
+  
+app.get("/retrieve", function (req, res) {
+    Visitor.find({}, function (err, data) {
+        if (!err) {
+            res.render("retrieve", { title: "View Visitor Data", records: data });
+        } else {
+            throw err;
+        }
+    }).clone().catch(function(err){ console.log(err)})
+});
