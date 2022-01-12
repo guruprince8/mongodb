@@ -6,7 +6,8 @@ db.createUser(
     pwd: "mongoadmin", 
     roles: ["userAdminAnyDatabase", "dbAdminAnyDatabase", "readWriteAnyDatabase"]
   })
-  
+ 
+ /* https://stackoverflow.com/questions/68945315/mongooseerror-query-was-already-executed */
 app.get("/retrieve", function (req, res) {
     Visitor.find({}, function (err, data) {
         if (!err) {
